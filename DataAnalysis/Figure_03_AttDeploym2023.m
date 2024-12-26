@@ -1,19 +1,20 @@
-%% LOAD DATA
+%% relevant paths & data files
 
 %run script to get behav and eyetracking data file pairs
 map_asc2mat_AttDeployment
-%%
-%mac DRL
-behavData_path='/Users/danielrojaslibano/Library/CloudStorage/GoogleDrive-dirl75@gmail.com/.shortcut-targets-by-id/1qQNDY9qvWWjOrFCd88oGEQslFO_Wa08C/LabCode/Magister_NeuroSc/Nunez/AttentionDeployment/data';
-%laptop DRL
-if strcmp(computer,'PCWIN64')
-    behavData_path='G:\.shortcut-targets-by-id\1qQNDY9qvWWjOrFCd88oGEQslFO_Wa08C\LabCode\Magister_NeuroSc\Nunez\AttentionDeployment\data';
-end
 
 %use only participants with both kinds of data
+%MasterTable_Files=MasterTable_Files(MasterTable_Files.overall,:);
 
-MasterTable_Files=MasterTable_Files(MasterTable_Files.overall,:);
 
+% specify data directory
+behavData_path='';
+
+% specify directory to save figures
+path2saveFigs='';
+
+
+%%
 nParticip=sum(MasterTable_Files.overall);
 nTrials=20;
 
@@ -33,30 +34,17 @@ end
 % load large file with eye movs data
 if exist('eyeMovs_byImg_UnpleasantImgs','var')
 else
-    
-    if strcmp(computer,'MACI64')
-        path='/Users/danielrojaslibano/Library/CloudStorage/GoogleDrive-dirl75@gmail.com/My Drive/Matlab_Daniel/Articles/Attentional Deployment/Matlab_scripts_and_functions/eyeMovs_processed_data';
-        load([path filesep 'eyeMovs_AttDepl_byImg_UnpleasantImgs.mat'])
-    end
-
-    if strcmp(computer,'PCWIN64')
-        path='G:\My Drive\Matlab_Daniel\Articles\Attentional Deployment\Matlab_scripts_and_functions\eyeMovs_processed_data';
-
-        load([path filesep 'eyeMovs_AttDepl_byImg_UnpleasantImgs.mat'])
-    end
-
+     load('eyeMovs_AttDepl_byImg_UnpleasantImgs.mat')
 end
 
-
-
 % load single trial data
-dataFolder='/Users/danielrojaslibano/Library/CloudStorage/GoogleDrive-dirl75@gmail.com/My Drive/Matlab_Daniel/Articles/Attentional Deployment/Matlab_scripts_and_functions/eyeMovs_processed_data';
+dataFolder='';
 participID='GX_38_79';
 load([dataFolder filesep 'eyeMovs_AttDepl_byParticip_' participID '.mat'])
 
 %use special folder containing copies of original images for trial #14
 % these images have the circle highlighted for a better visualization
-specialFolder='/Users/danielrojaslibano/Library/CloudStorage/GoogleDrive-dirl75@gmail.com/My Drive/Matlab_Daniel/Articles/Attentional Deployment/Figures_article/images_For_Figure3';
+specialFolder='images_For_Figure3';
 trials=fieldnames(eyeMovs.data);
 trialNum=14;
 
@@ -72,12 +60,8 @@ imgSize=size(img1);
 %load eye movs summary stats
 if exist('eyeMovs_Stats','var')
 else
-    path='/Users/danielrojaslibano/Library/CloudStorage/GoogleDrive-dirl75@gmail.com/My Drive/Matlab_Daniel/Articles/Attentional Deployment/Matlab_scripts_and_functions/eyeMovs_processed_data';
-    load([path filesep 'eyeMovs_AttDepl_Stats.mat'], 'eyeMovs_Stats')
-    if strcmp(computer,'PCWIN64')
-        path='G:\My Drive\Matlab_Daniel\Articles\Attentional Deployment\Matlab_scripts_and_functions\eyeMovs_processed_data';
-        load([path filesep 'eyeMovs_AttDepl_Stats.mat'], 'eyeMovs_Stats')
-    end
+    load('eyeMovs_AttDepl_Stats.mat', 'eyeMovs_Stats')
+
 end
 
 
@@ -391,11 +375,7 @@ annotation(fig1,'textbox',[0.002 0.33 lettW lettH],'string','C','edgecolor','non
 
 
 
-
-
-figsPath='/Users/danielrojaslibano/Library/CloudStorage/GoogleDrive-dirl75@gmail.com/My Drive/Matlab_Daniel/Articles/Attentional Deployment/Figures_article';
-
-print(fig1,[figsPath filesep 'FIG_03_AttDep2023'],'-dpng','-r450')
+print(fig1,[path2saveFigs filesep 'FIG_03'],'-dpng','-r450')
 %% stats
 
 disp('%%%%%%%%%%%%%%%')
