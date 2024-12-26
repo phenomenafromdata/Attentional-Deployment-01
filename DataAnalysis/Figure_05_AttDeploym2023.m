@@ -104,16 +104,6 @@ ax1=axes('parent', fig1, 'TickDir','out', 'position', posits(1,:),...
     'FontSize',fsize, 'FontName',fname);
 hold(ax1,'on')
 
-% plot(AntData1.ANT_Alert,deltaI_NA_minus_A_2019,'linestyle','none',...
-%     'Marker','.','markersize',ms,'color',cols(1,:))
-% 
-% plot(AntData1.ANT_Orient,deltaI_NA_minus_A_2019,'linestyle','none',...
-%     'Marker','o','linewidth',2,'markersize',ms-17,'color',cols(2,:))
-% 
-% plot(AntData1.ANT_Executive,deltaI_NA_minus_A_2019,'linestyle','none',...
-%     'Marker','+','linewidth',2,'markersize',ms-17,'color',cols(3,:))
-
-
 plot(AntData1.ANT_Alert,deltaI_NA_minus_A_2019,'linestyle','none',...
     'Marker','.','markersize',ms,'color',cols(1,:))
 
