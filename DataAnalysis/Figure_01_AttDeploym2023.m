@@ -3,15 +3,15 @@
 %run script to get behav and eyetracking data file pairs
 map_asc2mat_AttDeployment
 
-behavData_path='data_behavior';
-
-path2saveFigs='pwd';
-
-
 %use only participants with both kinds of data
-
 %MasterTable_Files=MasterTable_Files(MasterTable_Files.overall,:);
 
+
+% specify data directory
+behavData_path='';
+
+% specify directory to save figures
+path2saveFigs='';
 
 
 
