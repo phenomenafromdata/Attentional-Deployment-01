@@ -3,7 +3,7 @@
 %run script to get behav and eyetracking data file pairs
 map_asc2mat_AttDeployment
 
-behavData_path='pwd/data_behavior';
+behavData_path='data_behavior';
 
 path2saveFigs='pwd';
 
