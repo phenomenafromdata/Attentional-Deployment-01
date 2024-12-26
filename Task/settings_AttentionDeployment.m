@@ -16,7 +16,7 @@ dummyMode_Eyelink=true;
 
 
 %define which keyboard
-taskInputKb='Designer Compact Keyboard'; % CAR
+taskInputKb='Designer Compact Keyboard'; 
 % taskInputKb='USB KVM';
 % taskInputKb='USB Keyboard';
 %%
@@ -26,19 +26,7 @@ temp=dir([my_path filesep 'Imagenes Tarea DA']);
 folders=cell(1,1);
 c=0;
 
-% Previo DRL
-% for f=1:numel(temp)
-%     str=temp(f).name;
-%     if strcmp(str(1),'.') 
-%     else
-%         if isdir(str) % AL PARECER ESTO NO ESTABA FUNCIONANDO (CAR)
-%             c=c+1;
-%             folders{c,1}=temp(f).name;
-%         end
-%     end
-% end
 
-% Update CAR
 for f=1:numel(temp)
     str=temp(f).name;
     if strcmp(str(1),'.') 
