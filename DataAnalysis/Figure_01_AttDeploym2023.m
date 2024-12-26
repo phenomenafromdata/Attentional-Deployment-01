@@ -3,9 +3,9 @@
 %run script to get behav and eyetracking data file pairs
 map_asc2mat_AttDeployment
 
-behavData_path='/Users/danielrojaslibano/Library/CloudStorage/GoogleDrive-dirl75@gmail.com/.shortcut-targets-by-id/1qQNDY9qvWWjOrFCd88oGEQslFO_Wa08C/LabCode/Magister_NeuroSc/Nunez/AttentionDeployment/data';
+behavData_path='pwd/data_behavior';
 
-path2saveFigs='/Users/danielrojaslibano/Library/CloudStorage/GoogleDrive-dirl75@gmail.com/My Drive/Matlab_Daniel/Articles/Attentional Deployment/Figures and Results';
+path2saveFigs='pwd';
 
 
 %use only participants with both kinds of data
