@@ -22,7 +22,7 @@ taskInputKb='Designer Compact Keyboard';
 %%
 
 % get a list of folder names with the images
-temp=dir([my_path filesep 'Stimuli-AD']);
+temp=dir([my_path filesep 'Imagenes Tarea DA']);
 folders=cell(1,1);
 c=0;
 
