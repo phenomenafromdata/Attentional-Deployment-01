@@ -1,19 +1,16 @@
 %% LOAD ANT DATA
 clearvars
-AntData1=readtable('AttentionDeployment_ANT_data.xlsx');
-AntData2=readtable('Nuevos Datos ANT & Tarea DA.xlsx');
+AntData1=readtable('ANTData.xlsx');
+AntData2=readtable('Nuevos Datos ANT & Tarea DA.xlsx')
 
-if strcmp(computer,'PCWIN64')
-    path2saveFigs='G:\My Drive\Matlab_Daniel\Articles\Attentional Deployment\Figures_article';
-elseif strcmp(computer, 'MACI64')
-    path2saveFigs='/Users/danielrojaslibano/Library/CloudStorage/GoogleDrive-dirl75@gmail.com/My Drive/Matlab_Daniel/Articles/Attentional Deployment/Figures_article';
-end
+path2saveFigs='';
+
 
 
 AntData1=AntData1(logical(AntData1.Include),:);
 
 % calculate intensity and valence means
-behavData_path='/Users/danielrojaslibano/Library/CloudStorage/GoogleDrive-dirl75@gmail.com/.shortcut-targets-by-id/1qQNDY9qvWWjOrFCd88oGEQslFO_Wa08C/LabCode/Magister_NeuroSc/Nunez/AttentionDeployment/data';
+behavData_path='';
 
 nParticip=size(AntData1,1);
 
@@ -73,165 +70,7 @@ deltaV_NA_minus_A_2019=Val_FocusNonArous - Val_FocusArous;
 
 
 
-%% plot v1 (including ANT scores)
-
-h=0.36;
-w=0.37;
-left=0.13;
-bott0=0.1;
-bott1=bott0+1.4*h;
-
-posits=[left bott1 w h;
-    left+1.21*w bott1 w h;
-    left bott0 w h;
-    left+1.21*w bott0 w h];
-
-fsize=13;
-fname='Verdana';
-
-xTL={'Alert','Orientation','Executive'};
-
-ms=25;
-
-mult_factor=1;
-
-% cols=[0.24    0.15    0.66;
-%     0.0433    0.7    0.7;
-%     0.7    0.54    0];
-cols=[0.24    0.15    0.66;
-    0.24    0.15    0.66;
-    0.24    0.15    0.66];
-
-
-fig1=figure;
-
-ax1=axes('parent', fig1, 'TickDir','out', 'position', posits(1,:),...
-    'xtick',[0 1 2],'xticklabel',xTL,...
-    'ytick',mult_factor*(0:50:200),...
-    'FontSize',fsize, 'FontName',fname);
-hold(ax1,'on')
-
-X=randn(size(AntData1,1),1)./15;
-
-
-plot([mean(X)-0.2 mean(X)+0.2],mean([AntData1.ANTALERTA AntData1.ANTALERTA],'omitnan'),...
-    'linewidth',6,'color',[0.75 0.4 0.4])
-plot([mean(X)-0.2 mean(X)+0.2]+1,mean([AntData1.ANTORIENTACION  AntData1.ANTORIENTACION],'omitnan'),...
-    'linewidth',6,'color',[0.75 0.4 0.4])
-plot([mean(X)-0.2 mean(X)+0.2]+2,mean([AntData1.ANTCEJECUTIVO  AntData1.ANTCEJECUTIVO],'omitnan'),...
-    'linewidth',6,'color',[0.75 0.4 0.4])
-
-
-
-for j=1:numel(X)
-
-    plot([X(j) X(j)+1 X(j)+2],...
-        [AntData1.ANTALERTA(j) AntData1.ANTORIENTACION(j) AntData1.ANTCEJECUTIVO(j)],...
-        'color',[0.6 0.6 0.6])
-
-end
-
-plot([X X+1 X+2],[AntData1.ANTALERTA AntData1.ANTORIENTACION AntData1.ANTCEJECUTIVO],'marker','.',...
-    'linestyle','none','markersize',ms,'Color','k')
-
-
-ylabel('ANT score (ms)')
-
-xlim([-0.5 2.5])
-ylim([-1 190])
-ax2=axes('parent', fig1, 'TickDir','out', 'position', posits(2,:),...
-    'xtick',[0 1 2],'xticklabel',xTL,...
-    'FontSize',fsize, 'FontName',fname);
-hold(ax2,'on')
-
-
-X=randn(size(AntData2,1),1)./15;
-
-
-plot([mean(X)-0.2 mean(X)+0.2],mean([AntData2.ERRORALERTA_Center_DoubleCue_ AntData2.ERRORALERTA_Center_DoubleCue_],'omitnan'),...
-    'linewidth',6,'color',[0.75 0.4 0.4])
-plot([mean(X)-0.2 mean(X)+0.2]+1,mean([AntData2.ERRORORIENTACION_SpatialCue_  AntData2.ERRORORIENTACION_SpatialCue_],'omitnan'),...
-    'linewidth',6,'color',[0.75 0.4 0.4])
-plot([mean(X)-0.2 mean(X)+0.2]+2,mean([AntData2.ERRORATENCIONEJECUTIVA_Incongruent_  AntData2.ERRORATENCIONEJECUTIVA_Incongruent_],'omitnan'),...
-    'linewidth',6,'color',[0.75 0.4 0.4])
-
-for j=1:numel(X)
-
-    plot([X(j) X(j)+1 X(j)+2],...
-        [AntData2.ERRORALERTA_Center_DoubleCue_(j) AntData2.ERRORORIENTACION_SpatialCue_(j) AntData2.ERRORATENCIONEJECUTIVA_Incongruent_(j)],...
-        'color',[0.6 0.6 0.6])
-
-end
-
-plot([X X+1 X+2],[AntData2.ERRORALERTA_Center_DoubleCue_ AntData2.ERRORORIENTACION_SpatialCue_ AntData2.ERRORATENCIONEJECUTIVA_Incongruent_],'marker','.',...
-    'linestyle','none','markersize',ms,'Color','k')
-
-ylabel('ANT error (ms)')
-
-ylim([-1 24])
-
-ax3=axes('parent', fig1, 'TickDir','out', 'position', posits(3,:),...
-    'FontSize',fsize, 'FontName',fname);
-hold(ax3,'on')
-
-plot(AntData1.ANTALERTA,deltaV_NA_minus_A_2019,'linestyle','none',...
-    'Marker','.','markersize',ms,'color',cols(1,:))
-
-plot(AntData1.ANTORIENTACION,deltaV_NA_minus_A_2019,'linestyle','none',...
-    'Marker','o','linewidth',2,'markersize',ms-17,'color',cols(2,:))
-
-plot(AntData1.ANTCEJECUTIVO,deltaV_NA_minus_A_2019,'linestyle','none',...
-    'Marker','+','linewidth',2,'markersize',ms-17,'color',cols(3,:))
-
-
-text(147,4.2,xTL(1),'fontsize',fsize+1,'color',cols(1,:),'fontweight','bold')
-text(147,3.6,xTL(2),'fontsize',fsize+1,'color',cols(2,:),'fontweight','bold')
-text(147,3,xTL(3),'fontsize',fsize+1,'color',cols(3,:),'fontweight','bold')
-plot(139,4.2,'linestyle','none',...
-    'Marker','.','markersize',ms,'color',cols(1,:))
-plot(139,3.6,'linestyle','none',...
-    'Marker','o','linewidth',2.5,'markersize',ms-17,'color',cols(2,:))
-plot(139,3,'linestyle','none',...
-    'Marker','+','linewidth',2.5,'markersize',ms-17,'color',cols(3,:))
-
-
-
-ylabel({'Attentional Deployment','(Non-Arousing minus Arousing','rating difference)'})
-xlabel('ANT score')
-
-
-title('Valence')
-xlim([-1 180])
-
-ax4=axes('parent', fig1, 'TickDir','out', 'position', posits(4,:),...
-    'FontSize',fsize, 'FontName',fname);
-hold(ax4,'on')
-
-plot(AntData1.ANTALERTA,deltaI_NA_minus_A_2019,'linestyle','none',...
-    'Marker','.','markersize',ms,'color',cols(1,:))
-
-plot(AntData1.ANTORIENTACION,deltaI_NA_minus_A_2019,'linestyle','none',...
-    'Marker','o','linewidth',2,'markersize',ms-17,'color',cols(2,:))
-
-plot(AntData1.ANTCEJECUTIVO,deltaI_NA_minus_A_2019,'linestyle','none',...
-    'Marker','+','linewidth',2,'markersize',ms-17,'color',cols(3,:))
-
-
-
-xlabel('ANT score (ms)')
-
-title('Intensity')
-
-xlim([-1 180])
-ylim([-4.1 4.3])
-
-set(fig1,'PaperUnits','centimeters')
-set(fig1, 'PaperPosition', [0 0 25 20])
-
-
-% print(fig1,[path2saveFigs filesep 'FIG_05_AttDep2023'],'-dpng','-r350')
-
-%% plot V2 (only correlations between ANT and AD measures)
+%% plot correlations between ANT and AD measures
 
 h=0.82;
 w=0.37;
