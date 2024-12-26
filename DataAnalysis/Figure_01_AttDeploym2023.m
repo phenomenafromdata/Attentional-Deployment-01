@@ -297,9 +297,6 @@ annotation(fig1,'textbox', [0.005 0.48 lettW lettH],'String','D','fontweight','b
 set(fig1,'PaperUnits','centimeters')
 set(fig1, 'PaperPosition', [0 0 34.9 24.3])
 
-
-figsPath='/Users/danielrojaslibano/Library/CloudStorage/GoogleDrive-dirl75@gmail.com/My Drive/Matlab_Daniel/Articles/Attentional Deployment/Figures_article';
-
-print(fig1,[figsPath filesep 'FIG_01CD_AttDep2023'],'-dpng','-r330')
+print(fig1,[path2saveFigs filesep 'FIG_01CD'],'-dpng','-r330')
 
 
