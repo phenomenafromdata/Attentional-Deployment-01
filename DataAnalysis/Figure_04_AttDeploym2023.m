@@ -1,15 +1,17 @@
+%% relevant paths & data files
 
 %run script to get behav and eyetracking data file pairs
 map_asc2mat_AttDeployment
 
-behavData_path='/Users/danielrojaslibano/Library/CloudStorage/GoogleDrive-dirl75@gmail.com/.shortcut-targets-by-id/1qQNDY9qvWWjOrFCd88oGEQslFO_Wa08C/LabCode/Magister_NeuroSc/Nunez/AttentionDeployment/data';
-
-path2saveFigs='/Users/danielrojaslibano/Library/CloudStorage/GoogleDrive-dirl75@gmail.com/My Drive/Matlab_Daniel/Articles/Attentional Deployment/Figures and Results';
-
-
 %use only participants with both kinds of data
+%MasterTable_Files=MasterTable_Files(MasterTable_Files.overall,:);
 
-MasterTable_Files=MasterTable_Files(MasterTable_Files.overall,:);
+
+% specify data directory
+behavData_path='';
+
+% specify directory to save figures
+path2saveFigs='';
 
 %% GET DATA (INTENSITY, VALENCE, OTHERS)
 
@@ -402,9 +404,8 @@ annotation(fig1,'textbox', [0.008 0.44 lettW lettH],'String','B','fontweight','b
 set(fig1,'PaperUnits','inches')
 set(fig1, 'PaperPosition', [0 0 7.5 8])
 
-figsFolder='/Users/danielrojaslibano/Library/CloudStorage/GoogleDrive-dirl75@gmail.com/My Drive/Matlab_Daniel/Articles/Attentional Deployment/Figures_article';
 
-print(fig1,[figsFolder filesep 'FIG_04_AttDep2023'],'-dpng','-r450')
+print(fig1,[path2saveFigs filesep 'FIG_04'],'-dpng','-r450')
 
 %% compare between sequences
 
