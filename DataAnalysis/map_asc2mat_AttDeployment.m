@@ -14,28 +14,15 @@
 
 %% relevant paths
 
-my_path='/Users/danielrojaslibano/Library/CloudStorage/GoogleDrive-dirl75@gmail.com/.shortcut-targets-by-id/1qQNDY9qvWWjOrFCd88oGEQslFO_Wa08C/LabCode/Magister_NeuroSc/Nunez/AttentionDeployment';
-%my_path='G:\.shortcut-targets-by-id\1JD2h14KMMkmsDBGBDB-hW3ZYKKnacMr4\Magister_NeuroSc\Nunez\AttentionDeployment'; %path luzmq
+behavData_path='';  %*.mat files containing behavioral data
+eyetrackData_path='';  % *.asc files containing eye-tracking data
 
-
-path2saveSheet='/Users/danielrojaslibano/Library/CloudStorage/GoogleDrive-dirl75@gmail.com/My Drive/Matlab_Daniel/Articles/Attentional Deployment/Matlab_scripts_and_functions';
-%path2saveSheet='G:\Mi unidad\Tesis\MatLab Tesis\Figuras y resultados'; %path luzma
-
-
-%if strcmp(computer,'PCWIN64')
-    %my_path='G:\.shortcut-targets-by-id\1qQNDY9qvWWjOrFCd88oGEQslFO_Wa08C\LabCode\Magister_NeuroSc\Nunez\AttentionDeployment';
-
-    %path2saveSheet='G:\My Drive\Matlab_Daniel\Articles\Attentional Deployment\Matlab_scripts_and_functions';
-%end
-
-% CAR
-% my_path='G:\.shortcut-targets-by-id\1qQNDY9qvWWjOrFCd88oGEQslFO_Wa08C\LabCode\Magister_NeuroSc\Nunez\AttentionDeployment';
-% path2saveSheet='G:\.shortcut-targets-by-id\1t5cvz3Sd63-V_FV6F2pnX132RtRDWCfy\Attentional Deployment\Matlab_scripts_and_functions';
+path2saveSheet='';
 
 %%
 %two kinds of data files, *.asc and *.mat
-dir_asc=dir([my_path filesep '*.asc']);
-dir_mat=dir([my_path filesep 'data' filesep '*.mat']);
+dir_asc=dir([eyetrackData_path filesep '*.asc']);
+dir_mat=dir([behavData_path filesep '*.mat']);
 
 %get participant's ID from mat files
 particip_ID_mat=cell(numel(dir_mat),1); %preallocate
