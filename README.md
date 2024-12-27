@@ -2,7 +2,7 @@ This repository contains code and data files from an experimental cognitive task
 
 There are two folders:
 
-**Task:** contains all the Matlab code and stimuli (images) files necessary to run a session of the task. The code runs on Matlab and requires Psychtoolbox ([http://psychtoolbox.org/](http://psychtoolbox.org/)).
+**Task:** contains all the code and stimuli (images) files necessary to run a session of the task. The code runs on Matlab ([https://www.mathworks.com/](https://www.mathworks.com/)) and requires Psychtoolbox ([http://psychtoolbox.org/](http://psychtoolbox.org/)).
 
 **DataAnalysis:** contains Matlab code that implements several analyses on the data collected from human participants that performed the task.
 
