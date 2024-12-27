@@ -3,14 +3,13 @@ clearvars
 AntData1=readtable('ANTData.xlsx');
 AntData2=readtable('Nuevos Datos ANT & Tarea DA.xlsx')
 
+% specify directory where the behavioral data is located
+behavData_path='';
 path2saveFigs='';
-
-
 
 AntData1=AntData1(logical(AntData1.Include),:);
 
 % calculate intensity and valence means
-behavData_path='';
 
 nParticip=size(AntData1,1);
 
