@@ -3,7 +3,7 @@ Each file with name "Figure_XX_AttDeploym01" is intended to produce a single fig
 
 The code analyzes three kinds of data:
 
-* Behavioral data (performance, response times, intensity and valence ratings)
+* Behavioral data (response times, intensity and valence ratings)
 
 * Eye-tracking data (gaze position during the image presentation periods)
 
