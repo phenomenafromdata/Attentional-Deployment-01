@@ -1,7 +1,6 @@
 %% LOAD ANT DATA
 clearvars
-AntData1=readtable('ANTData.xlsx');
-AntData2=readtable('Nuevos Datos ANT & Tarea DA.xlsx')
+AntData1=readtable('DataANT_AttDeploy01.xlsx');
 
 % specify directory where the behavioral data is located
 behavData_path='';
