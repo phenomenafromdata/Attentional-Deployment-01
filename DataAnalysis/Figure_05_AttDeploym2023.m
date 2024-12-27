@@ -3,9 +3,11 @@ clearvars
 AntData1=readtable('DataANT_AttDeploy01.xlsx');
 AntData1=AntData1(logical(AntData1.Include),:);
 
-path2saveFigs='';
-
+% specify directory where the behavioral data is located
 behavData_path='';
+
+% specify directory to save figures
+path2saveFigs='';
 
 %% calculate
 
@@ -311,7 +313,7 @@ xlim([-1 180])
 set(fig1,'PaperUnits','centimeters')
 set(fig1, 'PaperPosition', [0 0 23 13])
 
-print(fig1,[path2saveFigs filesep 'FIG_05_AttDep2023'],'-dpng','-r350')
+print(fig1,[path2saveFigs filesep 'FIG_05'],'-dpng','-r350')
 
 %% stats
 disp('%%%%%%%%%%%%%%%%%%')
