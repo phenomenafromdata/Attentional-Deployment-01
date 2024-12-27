@@ -1,19 +1,15 @@
 %% LOAD ANT DATA
 clearvars
 AntData1=readtable('DataANT_AttDeploy01.xlsx');
-
-%% calculate
-if strcmp(computer,'PCWIN64')
-    path2saveFigs='G:\My Drive\Matlab_Daniel\Articles\Attentional Deployment\Figures_article';
-elseif strcmp(computer, 'MACA64')
-    path2saveFigs='/Users/danielrojaslibano/Library/CloudStorage/GoogleDrive-dirl75@gmail.com/My Drive/Matlab_Daniel/Articles/Attentional Deployment/Figures_article';
-end
-
-
 AntData1=AntData1(logical(AntData1.Include),:);
 
+path2saveFigs='';
+
+behavData_path='';
+
+%% calculate
+
 % calculate intensity and valence means
-behavData_path='/Users/danielrojaslibano/Library/CloudStorage/GoogleDrive-dirl75@gmail.com/.shortcut-targets-by-id/1qQNDY9qvWWjOrFCd88oGEQslFO_Wa08C/LabCode/Magister_NeuroSc/Nunez/AttentionDeployment/data';
 
 nParticip=size(AntData1,1);
 
@@ -30,7 +26,6 @@ for thisFile=1:nParticip
     
     if AntData1.Include
         
-        %load([behavData_path filesep AntData1.Filename{thisFile}])
         load([behavData_path filesep AntData1.Mat_Filename{thisFile}])
         
         I=BehavData.vars.ResponseIntensity_seq;
@@ -64,11 +59,11 @@ end
 %A: Arousing
 %F: Free
 
-deltaI_NA_minus_F_2019=Int_FocusNonArous - Int_FocusFree;
-deltaI_NA_minus_A_2019=Int_FocusNonArous - Int_FocusArous;
+deltaI_NA_minus_F=Int_FocusNonArous - Int_FocusFree;
+deltaI_NA_minus_A=Int_FocusNonArous - Int_FocusArous;
 
-deltaV_NA_minus_F_2019=Val_FocusNonArous - Val_FocusFree;
-deltaV_NA_minus_A_2019=Val_FocusNonArous - Val_FocusArous;
+deltaV_NA_minus_F=Val_FocusNonArous - Val_FocusFree;
+deltaV_NA_minus_A=Val_FocusNonArous - Val_FocusArous;
 
 
 
@@ -173,13 +168,13 @@ ax3=axes('parent', fig1, 'TickDir','out', 'position', posits(3,:),...
     'FontSize',fsize, 'FontName',fname);
 hold(ax3,'on')
 
-plot(AntData1.ANT_Alert,deltaV_NA_minus_A_2019,'linestyle','none',...
+plot(AntData1.ANT_Alert,deltaV_NA_minus_A,'linestyle','none',...
     'Marker','.','markersize',ms,'color',cols(1,:))
 
-plot(AntData1.ANT_Orient,deltaV_NA_minus_A_2019,'linestyle','none',...
+plot(AntData1.ANT_Orient,deltaV_NA_minus_A,'linestyle','none',...
     'Marker','o','linewidth',2,'markersize',ms-17,'color',cols(2,:))
 
-plot(AntData1.ANT_Executive,deltaV_NA_minus_A_2019,'linestyle','none',...
+plot(AntData1.ANT_Executive,deltaV_NA_minus_A,'linestyle','none',...
     'Marker','+','linewidth',2,'markersize',ms-17,'color',cols(3,:))
 
 
@@ -206,13 +201,13 @@ ax4=axes('parent', fig1, 'TickDir','out', 'position', posits(4,:),...
     'FontSize',fsize, 'FontName',fname);
 hold(ax4,'on')
 
-plot(AntData1.ANT_Alert,deltaI_NA_minus_A_2019,'linestyle','none',...
+plot(AntData1.ANT_Alert,deltaI_NA_minus_A,'linestyle','none',...
     'Marker','.','markersize',ms,'color',cols(1,:))
 
-plot(AntData1.ANT_Orient,deltaI_NA_minus_A_2019,'linestyle','none',...
+plot(AntData1.ANT_Orient,deltaI_NA_minus_A,'linestyle','none',...
     'Marker','o','linewidth',2,'markersize',ms-17,'color',cols(2,:))
 
-plot(AntData1.ANT_Executive,deltaI_NA_minus_A_2019,'linestyle','none',...
+plot(AntData1.ANT_Executive,deltaI_NA_minus_A,'linestyle','none',...
     'Marker','+','linewidth',2,'markersize',ms-17,'color',cols(3,:))
 
 
@@ -265,13 +260,13 @@ ax1=axes('parent', fig1, 'TickDir','out', 'position', posits(1,:),...
 hold(ax1,'on')
 
 
-plot(AntData1.ANT_Alert,deltaI_NA_minus_A_2019,'linestyle','none',...
+plot(AntData1.ANT_Alert,deltaI_NA_minus_A,'linestyle','none',...
     'Marker','.','markersize',ms,'color',cols(1,:))
 
-plot(AntData1.ANT_Orient,deltaI_NA_minus_A_2019,'linestyle','none',...
+plot(AntData1.ANT_Orient,deltaI_NA_minus_A,'linestyle','none',...
     'Marker','o','linewidth',2,'markersize',ms-17,'color',cols(2,:))
 
-plot(AntData1.ANT_Executive,deltaI_NA_minus_A_2019,'linestyle','none',...
+plot(AntData1.ANT_Executive,deltaI_NA_minus_A,'linestyle','none',...
     'Marker','+','linewidth',2,'markersize',ms-17,'color',cols(3,:))
 
 
@@ -288,13 +283,13 @@ ax2=axes('parent', fig1, 'TickDir','out', 'position', posits(2,:),...
     'FontSize',fsize, 'FontName',fname);
 hold(ax2,'on')
 
-plot(AntData1.ANT_Alert,deltaV_NA_minus_A_2019,'linestyle','none',...
+plot(AntData1.ANT_Alert,deltaV_NA_minus_A,'linestyle','none',...
     'Marker','.','markersize',ms,'color',cols(1,:))
 
-plot(AntData1.ANT_Orient,deltaV_NA_minus_A_2019,'linestyle','none',...
+plot(AntData1.ANT_Orient,deltaV_NA_minus_A,'linestyle','none',...
     'Marker','o','linewidth',2,'markersize',ms-17,'color',cols(2,:))
 
-plot(AntData1.ANT_Executive,deltaV_NA_minus_A_2019,'linestyle','none',...
+plot(AntData1.ANT_Executive,deltaV_NA_minus_A,'linestyle','none',...
     'Marker','+','linewidth',2,'markersize',ms-17,'color',cols(3,:))
 
 text(144,4.1,xTL(1),'fontsize',fsize+1,'color',cols(1,:),'fontweight','bold')
@@ -337,23 +332,23 @@ disp('Pearson Correlation between Intensity-based AD and ANT subscales')
 corrType='Pearson';
 
 disp('Alert')
-[R1,P1]=corr(AntData1.ANT_Alert,deltaI_NA_minus_A_2019,'rows','complete','type',corrType);
+[R1,P1]=corr(AntData1.ANT_Alert,deltaI_NA_minus_A,'rows','complete','type',corrType);
 disp(['r = ' num2str(R1) ', p = ' num2str(P1)])
 disp('Orientation')
-[R2,P2]=corr(AntData1.ANT_Orient,deltaI_NA_minus_A_2019,'rows','complete','type',corrType);
+[R2,P2]=corr(AntData1.ANT_Orient,deltaI_NA_minus_A,'rows','complete','type',corrType);
 disp(['r = ' num2str(R2) ', p = ' num2str(P2)])
 disp('Executive')
-[R3,P3]=corr(AntData1.ANT_Executive,deltaI_NA_minus_A_2019,'rows','complete','type',corrType);
+[R3,P3]=corr(AntData1.ANT_Executive,deltaI_NA_minus_A,'rows','complete','type',corrType);
 disp(['r = ' num2str(R3) ', p = ' num2str(P3)])
 
 disp('%%%%%%%%%%%%%')
 disp('Pearson Correlation between Valence-based AD and ANT subscales')
 disp('Alert')
-[R1,P1]=corr(AntData1.ANT_Alert,deltaV_NA_minus_A_2019,'rows','complete','type',corrType);
+[R1,P1]=corr(AntData1.ANT_Alert,deltaV_NA_minus_A,'rows','complete','type',corrType);
 disp(['r = ' num2str(R1) ', p = ' num2str(P1)])
 disp('Orientation')
-[R2,P2]=corr(AntData1.ANT_Orient,deltaV_NA_minus_A_2019,'rows','complete','type',corrType);
+[R2,P2]=corr(AntData1.ANT_Orient,deltaV_NA_minus_A,'rows','complete','type',corrType);
 disp(['r = ' num2str(R2) ', p = ' num2str(P2)])
 disp('Executive')
-[R3,P3]=corr(AntData1.ANT_Executive,deltaV_NA_minus_A_2019,'rows','complete','type',corrType);
+[R3,P3]=corr(AntData1.ANT_Executive,deltaV_NA_minus_A,'rows','complete','type',corrType);
 disp(['r = ' num2str(R3) ', p = ' num2str(P3)])
