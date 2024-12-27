@@ -4,7 +4,7 @@
 map_asc2mat_AttDeployment
 
 %use only participants with both kinds of data
-%MasterTable_Files=MasterTable_Files(MasterTable_Files.overall,:);
+MasterTable_Files=MasterTable_Files(MasterTable_Files.overall,:);
 
 
 % specify directory where the behavioral data is located
