@@ -7,7 +7,7 @@ map_asc2mat_AttDeployment
 %MasterTable_Files=MasterTable_Files(MasterTable_Files.overall,:);
 
 
-% specify data directory
+% specify directory where the behavioral data is located
 behavData_path='';
 
 % specify directory to save figures
