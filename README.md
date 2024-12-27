@@ -1,6 +1,6 @@
 This repository contains code and data files from an experimental cognitive task, designed to study "Attentional Deployment" (an Emotional Regulation strategy) from human participants.
 
-There are two folders:
+The respository is organized in two folders:
 
 * [Task](https://github.com/phenomenafromdata/Attentional-Deployment-01/tree/main/Task): contains all the code and stimuli (images) files necessary to run a session of the task. This is the same code that was used for data collection. The code runs on Matlab ([https://www.mathworks.com/](https://www.mathworks.com/)) and requires Psychtoolbox ([http://psychtoolbox.org/](http://psychtoolbox.org/)).
 
