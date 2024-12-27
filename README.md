@@ -2,7 +2,7 @@ This repository contains code and data files from an experimental cognitive task
 
 There are two folders:
 
-* [Task](https://github.com/phenomenafromdata/Attentional-Deployment-01/tree/main/Task): contains all the code and stimuli (images) files necessary to run a session of the task. The code runs on Matlab ([https://www.mathworks.com/](https://www.mathworks.com/)) and requires Psychtoolbox ([http://psychtoolbox.org/](http://psychtoolbox.org/)).
+* [Task](https://github.com/phenomenafromdata/Attentional-Deployment-01/tree/main/Task): contains all the code and stimuli (images) files necessary to run a session of the task. This is the same code that was used for data collection. The code runs on Matlab ([https://www.mathworks.com/](https://www.mathworks.com/)) and requires Psychtoolbox ([http://psychtoolbox.org/](http://psychtoolbox.org/)).
 
 * [DataAnalysis](https://github.com/phenomenafromdata/Attentional-Deployment-01/tree/main/DataAnalysis): contains Matlab code that implements several analyses on the data collected from human participants that performed the task.
 
