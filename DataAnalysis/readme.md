@@ -25,11 +25,11 @@ Images:
 All images belong to IAPS data bank.
 There are 5 possible image types (on each trial all the images presented belong to one of these types)
 
-1 Image Neutral, no circle (no attentional focus)
-2 Image Neutral, circle (attentional focus, non-arousing)
-3 Image Unpleasant, no circle (no attentional focus)
-4 Image Unpleasant, circle (attentional focus, located in an emotionally non-arousing area of the image)
-5 Image Unpleasant, circle (attentional focus, located in an emotionally arousing area of the image)
+1. Image Neutral, no circle (no attentional focus)
+2. Image Neutral, circle (attentional focus, non-arousing)
+3. Image Unpleasant, no circle (no attentional focus)
+4. Image Unpleasant, circle (attentional focus, located in an emotionally non-arousing area of the image)
+5. Image Unpleasant, circle (attentional focus, located in an emotionally arousing area of the image)
 
 Task design was based on:
 Jamie Ferri, Joseph Schmidt, Greg Hajcak, Turhan Canli (2013). Neural correlates of attentional deployment within unpleasant pictures. Neuroimage 15:70:268-77.
