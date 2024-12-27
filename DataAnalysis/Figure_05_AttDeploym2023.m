@@ -26,7 +26,6 @@ Val_FocusArous=nan(nParticip,1);
 
 for thisFile=1:nParticip
     
-    if AntData1.Include
         
         load([behavData_path filesep AntData1.Mat_Filename{thisFile}])
         
@@ -50,8 +49,6 @@ for thisFile=1:nParticip
         Val_FocusNonArous(thisFile)=mean(V(Stim==4),'omitnan');
         Val_FocusArous(thisFile)=mean(V(Stim==5),'omitnan');
         
-    end
-    
 end
 
 
